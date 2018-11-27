@@ -1,0 +1,6 @@
+ git remote add orm https://github.com/ormorm/note.git
+ git commit -m "ÎÒµÄ×¢ÊÍ"
+ git add . git commit -m
+ git push -u orm master
+
+
