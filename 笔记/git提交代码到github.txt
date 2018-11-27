@@ -1,0 +1,17 @@
+  1. git init
+  2. git add .
+  3. git commit -m “init”
+  4. git remote add origin https://github.com/hongxinzz/blog.git
+  5. git push --set-upstream origin master
+
+ git remote add orm https://github.com/ormorm/note.git
+ git commit -m "我的注释"
+ git add . git commit -m
+ git push -u orm master
+
+全部提交，一般步骤：：
+ git add 文件名字或者git add .
+ git commit -m '描述信息'
+ git pull origin master(你自己的分支) 我的源是orm，git push -u orm master  第一次提交需要-u，以后可以不使用
+
+如果过程中出现‘please enter a commit message...’,首先esc然后输入   ：wq即可
