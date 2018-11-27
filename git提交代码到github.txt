@@ -3,4 +3,7 @@
  git add . git commit -m
  git push -u orm master
 
-
+全部提交：
+ git add .
+ git commit -m "我的注释"
+ git push -u orm master
