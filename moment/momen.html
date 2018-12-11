@@ -1,0 +1,294 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>时间格式化</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <script src="moment.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        var now = moment().toDate();
+        console.log(now)
+
+        //格式化当前时间
+        // moment().format()
+        // moment().format(String)
+        now = moment().format('YYYY-MM-DD');
+        console.log(now);
+
+        // moment().format('YYYY年MM月DD日')
+        // moment().format('YYYY-MM-DD')
+        // moment().format('HH时mm分ss秒')
+        // moment().format('hh:mm:ss a') //格式化时分秒(12小时制)：'xx:xx:xx am/pm'
+        // moment().format('X') // 返回值为字符串类型  格式化时间戳(以秒为单位)
+        // moment().format('x') // 返回值为字符串类型  格式化时间戳(以毫秒为单位)
+
+        //其它几种格式化方法
+        now = moment().format('L') // 10/22/2016 
+        console.log(now);
+
+        now = moment().format('LL') // October 22, 2016
+        console.log(now);
+
+        //格式化当前时间
+        now = moment().format('YYYY-MM-DD:HH:MM:SS');
+        console.log(now);
+
+        //获取这个月初时间
+        let startMonth = moment().startOf('month').toDate();
+        console.log(startMonth);
+
+        //获取今天开始的时间
+        let dayOfStart = moment().startOf('day').toDate();
+        console.log(dayOfStart);
+
+        // 获取本周第一天(周日)0时0分0秒
+        // moment().startOf('week')
+        // 获取本周周一0时0分0秒
+        // moment().startOf('isoWeek')
+
+        //获取今天结束的时间
+        let dayOfEnd = moment().endOf('day').toDate();
+        console.log(dayOfEnd);
+
+        // 获取本周最后一天(周六)23时59分59秒
+        // moment().endOf('week')
+        // 获取本周周日23时59分59秒
+        // moment().endOf('isoWeek')
+
+
+        //获取＋n小时
+        let lateHour = moment().add(2, 'hour').toDate();
+        console.log(lateHour);
+
+        //获取＋n小时
+        console.log('//获取-n小时')
+        let beforeHour = moment().subtract(2, 'hour').toDate();
+        console.log(beforeHour);
+
+
+        //获取＋n天
+        let lateDay = moment().add(+5, 'day').toDate();
+        console.log(lateDay);
+
+        //获取-n天
+        let beforeDay = moment().add(-5, 'day').toDate();
+        console.log(beforeDay);
+        //也可以表示为
+        beforeDay = moment().subtract(5, 'day').toDate(); //moment().add(1, 'days')
+        console.log(beforeDay);
+
+        console.log('//获取＋n月')
+        let lateMonth = moment().add(2, 'month').toDate();  //moment().add(1, 'months')
+        console.log(lateHour);
+
+        //获取＋n月
+        let beforeMonth = moment().subtract(2, 'month').toDate();
+        console.log(lateHour);
+
+        console.log('//获取＋n年')
+        lateMonth = moment().add(2, 'year').toDate();   //moment().add({years: 1})
+        console.log(lateMonth);
+
+        //获取-n年
+        beforeMonth = moment().subtract(2, 'year').toDate();
+        console.log(lateHour);
+
+        // 设置星期
+        moment().add(1, 'weeks')
+        // 设置小时
+        moment().add(1, 'hours')
+        // 设置分钟
+        moment().add(1, 'minutes')
+        // 设置秒数
+        moment().add(1, 'seconds')
+
+        // Subtract Time   和add()类似
+        // moment().subtract(Number, String)
+        // moment().subtract(Object)
+
+
+
+        //获取星期
+        let week = moment().format('dddd');
+        console.log(week);
+
+        //获取到现在的年限 如果不满一年显示出具体几个月
+        let years = moment('2020-12-31').fromNow();
+        console.log(years);
+
+        // 获取时间:
+
+        // 获取是星期几
+        console.log(moment('2017-10-31').day());
+        console.log(moment().day()); //今天是星期几 moment().format('d');
+        // 获取当前年
+        console.log(moment().get('year'));
+        // 获取当前月，但是要 + 1
+        console.log(moment().get('month') + 1);
+        // 获取当前是几号 
+        console.log(moment().get('date'));
+        // 获取当前是几时  12点   16点  小时
+        console.log(moment().get('hour'));
+        // 获取当前分钟
+        console.log(moment().get('minute'));
+        // 获取当前秒
+        console.log(moment().get('second'));
+        // 获取当前毫秒
+        console.log(moment().get('millisecond'));
+
+        moment().startOf('month').format('YYYY-MM-DD'); //获取当前月的第一天
+
+        console.log(moment('2017-10-25').endOf('month').format('YYYY-MM-DD')); //获取当前月的最后一天
+
+        console.log(moment('2017-10-25').add(1, 'days').format('YYYY-MM-DD')); //加上一天
+
+        console.log(moment('2017-10-25').subtract(1, 'days').format('YYYY-MM-DD')); //减去一天
+
+        moment("2012-02", "YYYY-MM").daysInMonth(); //获取当前月有多少天
+
+        console.log(moment('2017-01-21').toArray()); //将时间转为数组  moment().toArray() // [years, months, date, hours, minutes, seconds, milliseconds]   
+        // moment().toObject() // {years: xxxx, months: x, date: xx ...}  对象
+
+
+        moment('2010-10-20').isSame('2010-10-20'); //两个时间是否相同
+
+
+        console.log(moment('2017-10-10').isAfter('2017-10-25')); //A 时间是否在 B 时间之后
+
+        console.log(moment('2017-10-10').isBefore('2017-10-25')); //A 时间是否在 B 时间之前
+
+        console.log(moment('2011-01-01').isAfter('2012-01-01', 'year')); //A 时间是否在 B 时间之后 根据年份对比
+
+
+
+        moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // A时间是否在 B C 时间之间
+
+        moment('2018-02-18').diff('2018-02-16', 'days');  // 判断两个时间段相差多少天
+
+        console.log(moment('2017-10-25').format('YYYY-MM-DD'),'年月'); //获取年月
+
+
+        // 格式代码	说明	返回值例子
+        // M	数字表示的月份，没有前导零	1到12
+        // MM	数字表示的月份，有前导零	01到12
+        // MMM	三个字母缩写表示的月份	Jan到Dec
+        // MMMM	月份，完整的文本格式	January到December
+        // Q	季度	1到4
+        // D	月份中的第几天，没有前导零	1到31
+        // DD	月份中的第几天，有前导零	01到31
+        // d	星期中的第几天，数字表示	0到6，0表示周日，6表示周六
+        // ddd	三个字母表示星期中的第几天	Sun到Sat
+        // dddd	星期几，完整的星期文本	从Sunday到Saturday
+        // w	年份中的第几周	如42：表示第42周
+        // YYYY	四位数字完整表示的年份	如：2014 或 2000
+        // YY	两位数字表示的年份	如：14 或 98
+        // A	大写的AM PM	AM PM
+        // a	小写的am pm	am pm
+        // HH	小时，24小时制，有前导零	00到23
+        // H	小时，24小时制，无前导零	0到23
+        // hh	小时，12小时制，有前导零	00到12
+        // h	小时，12小时制，无前导零	0到12
+        // m	没有前导零的分钟数	0到59
+        // mm	有前导零的分钟数	00到59
+        // s	没有前导零的秒数	1到59
+        // ss	有前导零的描述	01到59
+        // X	Unix时间戳	1411572969
+
+        // 获取当前时间戳 ,第一种获取的时间戳是把毫秒改成000显示，第二种和第三种是获取了当前毫秒的时间戳。
+        var timestamp1 = Date.parse( new Date());
+        console.log(timestamp1);
+        timestamp1 = (new Date()).valueOf();
+        console.log(timestamp1);
+        timestamp1 = new Date().getTime();
+        console.log(timestamp1);
+
+        // moment().format('X'); 转换当前时间的Unix时间戳： moment().valueOf() // 返回值为数值型
+
+        // 获取/设置时间信息
+        moment().second() //获得 秒  moment().seconds();moment().get('seconds')
+        moment().second(Number) //设置 秒。0 到 59
+        moment().minute() //获得 分  moment().minutes();moment().get('minutes')
+        moment().minute(Number) //设置 分。0 到 59
+        // 类似的用法
+        moment().hour() // 小时  moment().hours();moment().get('hours');//获取小时
+        moment().date() // 一个月里的第几天
+        moment().day() // 星期几
+        moment().dayOfYear() // 一年里的第几天
+        moment().week() // 一年里的第几周
+        moment().month() // 第几个月
+        moment().quarter() // 一年里的第几个季度
+        moment().year() // 年
+        moment().daysInMonth() // 当前月有多少天
+        
+
+        // 获取一个星期中的某一天
+        // moment().day() (0~6, 0: Sunday, 6: Saturday)
+        // moment().weekday() (0~6, 0: Sunday, 6: Saturday)
+        // moment().isoWeekday() (1~7, 1: Monday, 7: Sunday)
+        // moment().get('day')
+        // mment().get('weekday')
+        // moment().get('isoWeekday')
+
+        // 设置时间  
+        // moment().year(Number), moment().month(Number)...
+        // moment().set(String, Int)
+        // moment().set(Object)
+
+        // 设置年份
+        moment().year(2019);
+        moment().set('year', 2019);
+        moment().set({ year: 2019 });
+
+        //设置月份
+        // moment().month(11) (0~11, 0: January, 11: December)
+        moment().set('month', 11);
+
+        // 设置某个月中的某一天
+        moment().date(15);
+        moment().set('date', 15);
+
+        // 设置某个星期中的某一天
+        moment().weekday(0); // 设置日期为本周第一天（周日）
+        moment().isoWeekday(1); // 设置日期为本周周一
+        moment().set('weekday', 0);
+        moment().set('isoWeekday', 1);
+
+        // 设置小时
+        moment().hours(12);
+        moment().set('hours', 12);
+
+        // 设置分钟
+        moment().minutes(30);
+        moment().set('minutes', 30);
+
+        // 设置秒数
+        moment().seconds(30);
+        moment().set('seconds', 30);
+
+        // 比较时间  moment().diff(Moment|String|Number|Date|Array)
+        let start_date = moment().subtract(1, 'weeks')
+        let end_date = moment()
+        end_date.diff(start_date) // 返回毫秒数
+        end_date.diff(start_date, 'months') // 0
+        end_date.diff(start_date, 'weeks') // 1
+        end_date.diff(start_date, 'days') // 7
+        start_date.diff(end_date, 'days') // -7
+
+        // 转化为JavaScript原生Date对象
+        moment().toDate()
+        new Date(moment())
+
+        // 将Moment时间转换为JavaScript原生Date对象
+        let m = moment()
+        let nativeDate1 = m.toDate()
+        let nativeDate2 = new Date(m)
+        String(nativeDate1) === String(nativeDate2) // true
+
+    </script>
+</body>
+
+</html>
