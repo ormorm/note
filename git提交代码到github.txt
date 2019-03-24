@@ -32,3 +32,24 @@ git remote add origin https://github.com/buvtopcc/test.git
 git push -u origin master
 之后的修改按照1～5步即可提交。
 
+
+*****出现如下提示解决办法：*****
+Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <ormormorm@163.com>) not allowed
+
+ git config --global user.email "ormormorm@163.com"   输入邮箱
+ git config --global user.name "ormorm"    输入账户名字
+*****出现如上提示解决办法：*****
+
+
+
+
